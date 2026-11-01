@@ -1,0 +1,34 @@
+{
+  "network": "testnet",
+  "rpc": "https://test.rpc.fastnear.com",
+  "owner": "leash-busel.testnet",
+  "wallet": "wallet.leash-busel.testnet",
+  "registry": "registry.leash-busel-commons.testnet",
+  "registry_owner": "leash-busel-commons.testnet",
+  "vendor": "vendor.leash-busel.testnet",
+  "drainer": "drainer.leash-busel.testnet",
+  "scouts": [
+    "scout-1.leash-busel-commons.testnet",
+    "scout-2.leash-busel-commons.testnet"
+  ],
+  "agent_public_key": "ed25519:9YcNQ4dqopTwyihjtL1QFedvFQkt2r3ctarR6gNBUcB1",
+  "agent_key_permission": {
+    "FunctionCall": {
+      "allowance": "500000000000000000000000",
+      "method_names": [
+        "pay",
+        "request_payment"
+      ],
+      "receiver_id": "wallet.leash-busel.testnet"
+    }
+  },
+  "setup_txs": {
+    "deploy_registry": "HzvhVmkmxXXGpupJKa7s1EsqkrnRyMJZHoFsXShZcGFm",
+    "deploy_wallet": "4xxX4KVjkJF2tgNTsGasiGAU1Mtyg6pjdrDrW9jppEUg",
+    "add_agent_key": "fxvyxsVFDzujwNCP91pLYu28P7YP9BdVWRVBKKixxT4"
+  },
+  "explorer": {
+    "wallet": "https://testnet.nearblocks.io/address/wallet.leash-busel.testnet",
+    "registry": "https://testnet.nearblocks.io/address/registry.leash-busel-commons.testnet"
+  }
+}

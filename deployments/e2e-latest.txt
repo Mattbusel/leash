@@ -1,0 +1,48 @@
+Leash e2e on testnet: wallet wallet.leash-busel.testnet, registry registry.leash-busel-commons.testnet
+
+PASS  wallet contract is deployed  [HxyS2EfRFbYm4WeKjYRngX1FhKDQ4jj238WKMEajnWy2]
+PASS  agent key is a function-call key scoped to pay/request_payment on the wallet  [allowance 0.4831 NEAR]
+PASS  owner sets policy (caps relative to the last 24h)  https://testnet.nearblocks.io/txns/5s9TXaJZRZtxsCngUfFuwU5Bjs5mNpR2orMh1fn6Co58
+PASS  drainer is blocked once 2 distinct reporters agree  [2/2]
+PASS  registry operator attests a contract code hash  https://testnet.nearblocks.io/txns/Gu7xz2qaWjRtwH69tS7gScorsjcgUvomUghZnrt9sAPx
+PASS  report without the anti-spam deposit is refused  [ERR_DEPOSIT]  https://testnet.nearblocks.io/txns/H7EEwKf48hK3EYyLkpPoZuPiZggbr4fZsvP7aSf5QoqK
+PASS  guard allows the allowlisted vendor and the payment settles (registry check + transfer + callback)  [paid]  https://testnet.nearblocks.io/txns/H6e9Brmev6KqsFhehDVwX5yLYojNEcu51KjSR8edEJ3P
+PASS  payment above the per-payment cap becomes a pending request  [pending OVER_PER_PAYMENT_CAP]  https://testnet.nearblocks.io/txns/EbFdkMDVcFVbQBpiXDGmz4UBXmAc7JzevC7dq9DgUT3R
+PASS  owner approves it and it settles  [paid]  https://testnet.nearblocks.io/txns/DdergstkfZTmE5pSmaoQ8uAAcdwJaAHdbpkJXdtBZQdT
+PASS  agent request_payment goes to the owner queue  [pending AGENT_REQUEST]  https://testnet.nearblocks.io/txns/14WyozoGzog2uHaXTE2xnHzFmyrd1AUqoeDjkzB3D3Ev
+PASS  owner rejects it  https://testnet.nearblocks.io/txns/DVYr8ac9AHB5CbCeWrx2eS4RZxa7D9NBLLVKQqfPnckS
+PASS  contract refuses the drainer via the cross-contract registry check  [blocked BLOCKLISTED:reports]  https://testnet.nearblocks.io/txns/65WGdqBSTDnBoK7aLHWXPJkcHJsj1KDwfbuuSxLCkY6
+PASS  contract receiver (attested in the registry) needs the allowlist  [blocked CONTRACT_NOT_ALLOWLISTED]  https://testnet.nearblocks.io/txns/8hsAvvo353gnwjLcj3uagfuPkVc9atuLoo8bPgsYYDgf
+PASS  denylist blocks without needing the registry  [blocked DENYLISTED]  https://testnet.nearblocks.io/txns/HnHGQgvVfNus7RhaAmJ9HPHbzCY8aEWaMnF1vXcN9SeR
+PASS  a purpose string is required  [blocked PURPOSE_REQUIRED]  https://testnet.nearblocks.io/txns/GBZZvXL1pCRhdDw3tShyioF3ouGnhSn32pnPXGHbvUFf
+PASS  per-receiver rolling 24h cap queues the payment  [pending OVER_RECEIVER_DAILY_CAP]  https://testnet.nearblocks.io/txns/Dip7rB7c5c73wBUKmsPZTd6Qj8ePhZfTZgHNNMfshyD3
+PASS  global rolling 24h cap queues the payment  [pending OVER_DAILY_CAP]  https://testnet.nearblocks.io/txns/GQwPE4yL2XBvHokHgwaJ3XD3PgtjAM1mRBNa6UpdtY9k
+PASS  allowlist mode blocks unknown receivers  [blocked NOT_ALLOWLISTED]  https://testnet.nearblocks.io/txns/BiqPyBPWutnWQ3FyfPiHYa3MWTqUaXvdqV53c3Jwt2y6
+PASS  transfer to a missing account fails and the reservation is rolled back  [failed TRANSFER_FAILED, spent unchanged 0.7620]  https://testnet.nearblocks.io/txns/67ta23sJsYteTKqJFPs838bFdGq4b7j1zCCtPt7nRemX
+PASS  max payments per hour throttles the agent  [blocked RATE_LIMIT]  https://testnet.nearblocks.io/txns/8PLbaeU98Ut34bF38oAAp6aRUoGUxgjcvHAwTgW7WfZc
+PASS  guardian can freeze the wallet  https://testnet.nearblocks.io/txns/A5S84nSC1WJKHmkaTfkEnodqx2zev65XsKMCRC2zXikH
+PASS  frozen wallet blocks every payment  [blocked FROZEN]  https://testnet.nearblocks.io/txns/FktDCoSWfTuYj5EakQXcCtCLGV8df7MTCz9kEcyCjRez
+PASS  guardian cannot unfreeze  [ERR_NOT_OWNER]  https://testnet.nearblocks.io/txns/BzBGuDwQRAxukxRRgGcNzTzYAxs1eUoV5Le1UHiUsLYH
+PASS  owner unfreezes  https://testnet.nearblocks.io/txns/CipW8YsTSt2tHkhWJFrdznTSqSVWUZergy8kogpZu9T3
+PASS  two blocked attempts trip the auto-freeze  [AUTO_FREEZE_TOO_MANY_BLOCKS]  https://testnet.nearblocks.io/txns/9fRnBN63J5xEAQnZ4BQL4zWhCALk3KUTKCaBi5k2J8Ye
+PASS  a stranger cannot set the policy  [ERR_NOT_OWNER]  https://testnet.nearblocks.io/txns/9275iTh5XWMeLjyxzC7EDkUGHxXpqt9scquC4bdKGPbN
+PASS  a stranger cannot call pay  [ERR_NOT_AGENT]  https://testnet.nearblocks.io/txns/BmcLsxRNbshurmT9JigZNtVm2KqYjQhY8ZM6XiWcRbP6
+PASS  a stranger cannot fake a callback  [Method on_transfer_done is private]  https://testnet.nearblocks.io/txns/BgHKw6EUpvsFcEnXaWqKBTj1A6R5do1qaijkrM3yJ8Z
+PASS  a stranger cannot withdraw  [ERR_NOT_OWNER]  https://testnet.nearblocks.io/txns/7ckeWVwMVxhgMq49pXnKNoUZqYSHfJS7ZGt2dqqTdkrE
+PASS  agent key cannot send a plain NEAR transfer  [AccessKeyRequiresFullAccessActionError: Access key requires full access]
+PASS  agent key cannot send more than its allowance either  [AccessKeyNotEnoughAllowanceActionError: Not enough allowance for access key ed25519:9YcNQ4dqopTwyihjtL1QFedvFQkt2r3ctarR6gNBUcB1 on account wallet.leash-busel.t]
+PASS  agent key cannot add a full-access key  [AccessKeyRequiresFullAccessActionError: Access key requires full access]
+PASS  agent key cannot delete the account  [AccessKeyRequiresFullAccessActionError: Access key requires full access]
+PASS  agent key cannot deploy code  [AccessKeyRequiresFullAccessActionError: Access key requires full access]
+PASS  agent key cannot call owner methods (withdraw)  [AccessKeyMethodNameMismatchActionError: Access key does not allow method withdraw]
+PASS  agent key cannot call set_policy  [AccessKeyMethodNameMismatchActionError: Access key does not allow method set_policy]
+PASS  agent key cannot attach a deposit  [AccessKeyDepositWithFunctionCallActionError: Deposit is not allowed with function call]
+PASS  agent key cannot call another contract  [AccessKeyReceiverMismatchActionError: Access key receiver wallet.leash-busel.testnet does not match transaction receiver registry.leash-busel-commons.testnet]
+PASS  counterparty check blocks the drainer  [SHARED_BLOCKLIST,PREVIOUSLY_BLOCKED,NEW_ACCOUNT]
+PASS  counterparty check flags a contract receiver  [CONTRACT_NOT_ALLOWLISTED,PREVIOUSLY_BLOCKED,NEW_ACCOUNT]
+PASS  counterparty check warns on a new, unknown receiver  [PREVIOUSLY_BLOCKED,NEW_ACCOUNT]
+(vendor returned 0.1610 NEAR to the wallet https://testnet.nearblocks.io/txns/7KQJrXqwJRbYsPnkSdAM3XS9MvmURkUj8xfG86o5AdP1)
+
+agent key allowance left: 0.4764 NEAR
+
+41 passed, 0 failed in 181s. Results: deployments/e2e-latest.json

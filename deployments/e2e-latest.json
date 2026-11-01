@@ -1,0 +1,262 @@
+{
+  "ran_at": "2026-11-01T15:23:31.424Z",
+  "seconds": 181,
+  "passed": 41,
+  "failed": 0,
+  "wallet": "wallet.leash-busel.testnet",
+  "registry": "registry.leash-busel-commons.testnet",
+  "results": [
+    {
+      "name": "wallet contract is deployed",
+      "pass": true,
+      "detail": "HxyS2EfRFbYm4WeKjYRngX1FhKDQ4jj238WKMEajnWy2"
+    },
+    {
+      "name": "agent key is a function-call key scoped to pay/request_payment on the wallet",
+      "pass": true,
+      "detail": "allowance 0.4831 NEAR"
+    },
+    {
+      "name": "owner sets policy (caps relative to the last 24h)",
+      "pass": true,
+      "tx": "5s9TXaJZRZtxsCngUfFuwU5Bjs5mNpR2orMh1fn6Co58",
+      "url": "https://testnet.nearblocks.io/txns/5s9TXaJZRZtxsCngUfFuwU5Bjs5mNpR2orMh1fn6Co58"
+    },
+    {
+      "name": "drainer is blocked once 2 distinct reporters agree",
+      "pass": true,
+      "detail": "2/2"
+    },
+    {
+      "name": "registry operator attests a contract code hash",
+      "pass": true,
+      "tx": "Gu7xz2qaWjRtwH69tS7gScorsjcgUvomUghZnrt9sAPx",
+      "url": "https://testnet.nearblocks.io/txns/Gu7xz2qaWjRtwH69tS7gScorsjcgUvomUghZnrt9sAPx"
+    },
+    {
+      "name": "report without the anti-spam deposit is refused",
+      "pass": true,
+      "tx": "H7EEwKf48hK3EYyLkpPoZuPiZggbr4fZsvP7aSf5QoqK",
+      "detail": "ERR_DEPOSIT",
+      "url": "https://testnet.nearblocks.io/txns/H7EEwKf48hK3EYyLkpPoZuPiZggbr4fZsvP7aSf5QoqK"
+    },
+    {
+      "name": "guard allows the allowlisted vendor and the payment settles (registry check + transfer + callback)",
+      "pass": true,
+      "tx": "H6e9Brmev6KqsFhehDVwX5yLYojNEcu51KjSR8edEJ3P",
+      "detail": "paid",
+      "url": "https://testnet.nearblocks.io/txns/H6e9Brmev6KqsFhehDVwX5yLYojNEcu51KjSR8edEJ3P"
+    },
+    {
+      "name": "payment above the per-payment cap becomes a pending request",
+      "pass": true,
+      "tx": "EbFdkMDVcFVbQBpiXDGmz4UBXmAc7JzevC7dq9DgUT3R",
+      "detail": "pending OVER_PER_PAYMENT_CAP",
+      "url": "https://testnet.nearblocks.io/txns/EbFdkMDVcFVbQBpiXDGmz4UBXmAc7JzevC7dq9DgUT3R"
+    },
+    {
+      "name": "owner approves it and it settles",
+      "pass": true,
+      "tx": "DdergstkfZTmE5pSmaoQ8uAAcdwJaAHdbpkJXdtBZQdT",
+      "detail": "paid",
+      "url": "https://testnet.nearblocks.io/txns/DdergstkfZTmE5pSmaoQ8uAAcdwJaAHdbpkJXdtBZQdT"
+    },
+    {
+      "name": "agent request_payment goes to the owner queue",
+      "pass": true,
+      "tx": "14WyozoGzog2uHaXTE2xnHzFmyrd1AUqoeDjkzB3D3Ev",
+      "detail": "pending AGENT_REQUEST",
+      "url": "https://testnet.nearblocks.io/txns/14WyozoGzog2uHaXTE2xnHzFmyrd1AUqoeDjkzB3D3Ev"
+    },
+    {
+      "name": "owner rejects it",
+      "pass": true,
+      "tx": "DVYr8ac9AHB5CbCeWrx2eS4RZxa7D9NBLLVKQqfPnckS",
+      "url": "https://testnet.nearblocks.io/txns/DVYr8ac9AHB5CbCeWrx2eS4RZxa7D9NBLLVKQqfPnckS"
+    },
+    {
+      "name": "contract refuses the drainer via the cross-contract registry check",
+      "pass": true,
+      "tx": "65WGdqBSTDnBoK7aLHWXPJkcHJsj1KDwfbuuSxLCkY6",
+      "detail": "blocked BLOCKLISTED:reports",
+      "url": "https://testnet.nearblocks.io/txns/65WGdqBSTDnBoK7aLHWXPJkcHJsj1KDwfbuuSxLCkY6"
+    },
+    {
+      "name": "contract receiver (attested in the registry) needs the allowlist",
+      "pass": true,
+      "tx": "8hsAvvo353gnwjLcj3uagfuPkVc9atuLoo8bPgsYYDgf",
+      "detail": "blocked CONTRACT_NOT_ALLOWLISTED",
+      "url": "https://testnet.nearblocks.io/txns/8hsAvvo353gnwjLcj3uagfuPkVc9atuLoo8bPgsYYDgf"
+    },
+    {
+      "name": "denylist blocks without needing the registry",
+      "pass": true,
+      "tx": "HnHGQgvVfNus7RhaAmJ9HPHbzCY8aEWaMnF1vXcN9SeR",
+      "detail": "blocked DENYLISTED",
+      "url": "https://testnet.nearblocks.io/txns/HnHGQgvVfNus7RhaAmJ9HPHbzCY8aEWaMnF1vXcN9SeR"
+    },
+    {
+      "name": "a purpose string is required",
+      "pass": true,
+      "tx": "GBZZvXL1pCRhdDw3tShyioF3ouGnhSn32pnPXGHbvUFf",
+      "detail": "blocked PURPOSE_REQUIRED",
+      "url": "https://testnet.nearblocks.io/txns/GBZZvXL1pCRhdDw3tShyioF3ouGnhSn32pnPXGHbvUFf"
+    },
+    {
+      "name": "per-receiver rolling 24h cap queues the payment",
+      "pass": true,
+      "tx": "Dip7rB7c5c73wBUKmsPZTd6Qj8ePhZfTZgHNNMfshyD3",
+      "detail": "pending OVER_RECEIVER_DAILY_CAP",
+      "url": "https://testnet.nearblocks.io/txns/Dip7rB7c5c73wBUKmsPZTd6Qj8ePhZfTZgHNNMfshyD3"
+    },
+    {
+      "name": "global rolling 24h cap queues the payment",
+      "pass": true,
+      "tx": "GQwPE4yL2XBvHokHgwaJ3XD3PgtjAM1mRBNa6UpdtY9k",
+      "detail": "pending OVER_DAILY_CAP",
+      "url": "https://testnet.nearblocks.io/txns/GQwPE4yL2XBvHokHgwaJ3XD3PgtjAM1mRBNa6UpdtY9k"
+    },
+    {
+      "name": "allowlist mode blocks unknown receivers",
+      "pass": true,
+      "tx": "BiqPyBPWutnWQ3FyfPiHYa3MWTqUaXvdqV53c3Jwt2y6",
+      "detail": "blocked NOT_ALLOWLISTED",
+      "url": "https://testnet.nearblocks.io/txns/BiqPyBPWutnWQ3FyfPiHYa3MWTqUaXvdqV53c3Jwt2y6"
+    },
+    {
+      "name": "transfer to a missing account fails and the reservation is rolled back",
+      "pass": true,
+      "tx": "67ta23sJsYteTKqJFPs838bFdGq4b7j1zCCtPt7nRemX",
+      "detail": "failed TRANSFER_FAILED, spent unchanged 0.7620",
+      "url": "https://testnet.nearblocks.io/txns/67ta23sJsYteTKqJFPs838bFdGq4b7j1zCCtPt7nRemX"
+    },
+    {
+      "name": "max payments per hour throttles the agent",
+      "pass": true,
+      "tx": "8PLbaeU98Ut34bF38oAAp6aRUoGUxgjcvHAwTgW7WfZc",
+      "detail": "blocked RATE_LIMIT",
+      "url": "https://testnet.nearblocks.io/txns/8PLbaeU98Ut34bF38oAAp6aRUoGUxgjcvHAwTgW7WfZc"
+    },
+    {
+      "name": "guardian can freeze the wallet",
+      "pass": true,
+      "tx": "A5S84nSC1WJKHmkaTfkEnodqx2zev65XsKMCRC2zXikH",
+      "url": "https://testnet.nearblocks.io/txns/A5S84nSC1WJKHmkaTfkEnodqx2zev65XsKMCRC2zXikH"
+    },
+    {
+      "name": "frozen wallet blocks every payment",
+      "pass": true,
+      "tx": "FktDCoSWfTuYj5EakQXcCtCLGV8df7MTCz9kEcyCjRez",
+      "detail": "blocked FROZEN",
+      "url": "https://testnet.nearblocks.io/txns/FktDCoSWfTuYj5EakQXcCtCLGV8df7MTCz9kEcyCjRez"
+    },
+    {
+      "name": "guardian cannot unfreeze",
+      "pass": true,
+      "tx": "BzBGuDwQRAxukxRRgGcNzTzYAxs1eUoV5Le1UHiUsLYH",
+      "detail": "ERR_NOT_OWNER",
+      "url": "https://testnet.nearblocks.io/txns/BzBGuDwQRAxukxRRgGcNzTzYAxs1eUoV5Le1UHiUsLYH"
+    },
+    {
+      "name": "owner unfreezes",
+      "pass": true,
+      "tx": "CipW8YsTSt2tHkhWJFrdznTSqSVWUZergy8kogpZu9T3",
+      "url": "https://testnet.nearblocks.io/txns/CipW8YsTSt2tHkhWJFrdznTSqSVWUZergy8kogpZu9T3"
+    },
+    {
+      "name": "two blocked attempts trip the auto-freeze",
+      "pass": true,
+      "tx": "9fRnBN63J5xEAQnZ4BQL4zWhCALk3KUTKCaBi5k2J8Ye",
+      "detail": "AUTO_FREEZE_TOO_MANY_BLOCKS",
+      "url": "https://testnet.nearblocks.io/txns/9fRnBN63J5xEAQnZ4BQL4zWhCALk3KUTKCaBi5k2J8Ye"
+    },
+    {
+      "name": "a stranger cannot set the policy",
+      "pass": true,
+      "tx": "9275iTh5XWMeLjyxzC7EDkUGHxXpqt9scquC4bdKGPbN",
+      "detail": "ERR_NOT_OWNER",
+      "url": "https://testnet.nearblocks.io/txns/9275iTh5XWMeLjyxzC7EDkUGHxXpqt9scquC4bdKGPbN"
+    },
+    {
+      "name": "a stranger cannot call pay",
+      "pass": true,
+      "tx": "BmcLsxRNbshurmT9JigZNtVm2KqYjQhY8ZM6XiWcRbP6",
+      "detail": "ERR_NOT_AGENT",
+      "url": "https://testnet.nearblocks.io/txns/BmcLsxRNbshurmT9JigZNtVm2KqYjQhY8ZM6XiWcRbP6"
+    },
+    {
+      "name": "a stranger cannot fake a callback",
+      "pass": true,
+      "tx": "BgHKw6EUpvsFcEnXaWqKBTj1A6R5do1qaijkrM3yJ8Z",
+      "detail": "Method on_transfer_done is private",
+      "url": "https://testnet.nearblocks.io/txns/BgHKw6EUpvsFcEnXaWqKBTj1A6R5do1qaijkrM3yJ8Z"
+    },
+    {
+      "name": "a stranger cannot withdraw",
+      "pass": true,
+      "tx": "7ckeWVwMVxhgMq49pXnKNoUZqYSHfJS7ZGt2dqqTdkrE",
+      "detail": "ERR_NOT_OWNER",
+      "url": "https://testnet.nearblocks.io/txns/7ckeWVwMVxhgMq49pXnKNoUZqYSHfJS7ZGt2dqqTdkrE"
+    },
+    {
+      "name": "agent key cannot send a plain NEAR transfer",
+      "pass": true,
+      "detail": "AccessKeyRequiresFullAccessActionError: Access key requires full access"
+    },
+    {
+      "name": "agent key cannot send more than its allowance either",
+      "pass": true,
+      "detail": "AccessKeyNotEnoughAllowanceActionError: Not enough allowance for access key ed25519:9YcNQ4dqopTwyihjtL1QFedvFQkt2r3ctarR6gNBUcB1 on account wallet.leash-busel.t"
+    },
+    {
+      "name": "agent key cannot add a full-access key",
+      "pass": true,
+      "detail": "AccessKeyRequiresFullAccessActionError: Access key requires full access"
+    },
+    {
+      "name": "agent key cannot delete the account",
+      "pass": true,
+      "detail": "AccessKeyRequiresFullAccessActionError: Access key requires full access"
+    },
+    {
+      "name": "agent key cannot deploy code",
+      "pass": true,
+      "detail": "AccessKeyRequiresFullAccessActionError: Access key requires full access"
+    },
+    {
+      "name": "agent key cannot call owner methods (withdraw)",
+      "pass": true,
+      "detail": "AccessKeyMethodNameMismatchActionError: Access key does not allow method withdraw"
+    },
+    {
+      "name": "agent key cannot call set_policy",
+      "pass": true,
+      "detail": "AccessKeyMethodNameMismatchActionError: Access key does not allow method set_policy"
+    },
+    {
+      "name": "agent key cannot attach a deposit",
+      "pass": true,
+      "detail": "AccessKeyDepositWithFunctionCallActionError: Deposit is not allowed with function call"
+    },
+    {
+      "name": "agent key cannot call another contract",
+      "pass": true,
+      "detail": "AccessKeyReceiverMismatchActionError: Access key receiver wallet.leash-busel.testnet does not match transaction receiver registry.leash-busel-commons.testnet"
+    },
+    {
+      "name": "counterparty check blocks the drainer",
+      "pass": true,
+      "detail": "SHARED_BLOCKLIST,PREVIOUSLY_BLOCKED,NEW_ACCOUNT"
+    },
+    {
+      "name": "counterparty check flags a contract receiver",
+      "pass": true,
+      "detail": "CONTRACT_NOT_ALLOWLISTED,PREVIOUSLY_BLOCKED,NEW_ACCOUNT"
+    },
+    {
+      "name": "counterparty check warns on a new, unknown receiver",
+      "pass": true,
+      "detail": "PREVIOUSLY_BLOCKED,NEW_ACCOUNT"
+    }
+  ]
+}

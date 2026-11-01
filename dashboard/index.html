@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leash Dashboard</title>
+  <meta name="description" content="Read-only view of a Leash agent wallet on NEAR testnet: policy, spend meters, pending approvals, decisions and the shared blocklist.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">&#x2301;</span>
+      <div>
+        <h1>Leash</h1>
+        <p class="sub">An AI agent's wallet with the owner's rules enforced on NEAR. Read-only, live from testnet RPC.</p>
+      </div>
+    </div>
+    <div class="meta">
+      <span id="frozen" class="badge">loading</span>
+      <span id="updated" class="muted small"></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="cards">
+      <article class="card">
+        <h2>Wallet</h2>
+        <p class="mono"><a id="wallet-link" target="_blank" rel="noopener"></a></p>
+        <dl class="kv">
+          <dt>Owner</dt><dd id="owner" class="mono"></dd>
+          <dt>Balance</dt><dd id="balance"></dd>
+          <dt>Available to pay</dt><dd id="available"></dd>
+          <dt>Paid</dt><dd id="paid"></dd>
+          <dt>Blocked</dt><dd id="blocked"></dd>
+        </dl>
+      </article>
+
+      <article class="card">
+        <h2>Spend meters</h2>
+        <div class="meter-row">
+          <div class="meter-label"><span>Rolling 24h</span><span id="m24-text"></span></div>
+          <div class="meter"><div id="m24" class="fill"></div></div>
+        </div>
+        <div class="meter-row">
+          <div class="meter-label"><span>Attempts this hour</span><span id="mh-text"></span></div>
+          <div class="meter"><div id="mh" class="fill"></div></div>
+        </div>
+        <h3>Per receiver (24h)</h3>
+        <div id="per-receiver"></div>
+      </article>
+
+      <article class="card">
+        <h2>Agent key</h2>
+        <p class="small muted">Keys on the wallet account. The agent holds the function-call key: it can only call the listed methods on this contract, cannot attach NEAR, and its gas spend is capped by the allowance.</p>
+        <div id="keys"></div>
+      </article>
+    </section>
+
+    <section class="card wide">
+      <h2>Pending approvals <span id="pending-count" class="count"></span></h2>
+      <p class="small muted">Over-limit payments wait here. Only the owner can approve or reject (CLI: <code>node agent/cli.mjs approve &lt;id&gt;</code>).</p>
+      <div class="table-wrap"><table id="pending"><thead><tr><th>#</th><th>Amount</th><th>Receiver</th><th>Why</th><th>Purpose</th><th>Created</th></tr></thead><tbody></tbody></table></div>
+    </section>
+
+    <section class="card wide">
+      <h2>Recent decisions</h2>
+      <div class="filters" id="filters"></div>
+      <div class="table-wrap"><table id="history"><thead><tr><th>#</th><th>When</th><th>Decision</th><th>Amount</th><th>Receiver</th><th>Reason</th><th>Purpose</th></tr></thead><tbody></tbody></table></div>
+    </section>
+
+    <section class="cards two">
+      <article class="card">
+        <h2>Policy</h2>
+        <dl class="kv" id="policy"></dl>
+      </article>
+      <article class="card">
+        <h2>Shared blocklist</h2>
+        <p class="small muted">Registry <a id="registry-link" class="mono" target="_blank" rel="noopener"></a>. An account is blocked once <span id="threshold"></span> distinct reporters file evidence, or the registry owner blocks it.</p>
+        <div id="blocklist"></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="muted small">
+    Testnet only. Data: NEAR JSON-RPC <span id="rpc" class="mono"></span>. Point it elsewhere with <code>?wallet=&lt;id&gt;&amp;registry=&lt;id&gt;</code>.
+    Source: <a href="https://github.com/Mattbusel/leash" target="_blank" rel="noopener">github.com/Mattbusel/leash</a>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

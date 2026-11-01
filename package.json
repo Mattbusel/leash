@@ -1,0 +1,27 @@
+{
+  "name": "leash",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Give an AI agent money without giving it the keys: a policy wallet contract, a shared blocklist and a counterparty check for agents on NEAR.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Matthew Busel",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "near-api-js": "7.4.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "cargo test",
+    "setup": "node scripts/setup.mjs",
+    "e2e": "node scripts/e2e.mjs",
+    "demo": "node scripts/attack-demo.mjs",
+    "dashboard": "node scripts/serve-dashboard.mjs",
+    "leash": "node agent/cli.mjs"
+  },
+  "bin": {
+    "leash": "agent/cli.mjs"
+  }
+}
